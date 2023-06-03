@@ -12,6 +12,7 @@ namespace ReflectionStudy
         static void Main(string[] args)
         {
             GetTypeMathod1();
+            GetTypeMathod2();
         }
 
         static private void GetTypeMathod1()
@@ -33,6 +34,25 @@ namespace ReflectionStudy
 
             ArrayList al = new ArrayList();
             Type type4 = al.GetType();
+            Console.WriteLine(type4.Name);
+            Console.WriteLine(type4.Namespace + "\n");
+        }
+
+        static private void GetTypeMathod2()
+        {
+            Type type1 = typeof(int);
+            Console.WriteLine(type1.Name);
+            Console.WriteLine(type1.Namespace + "\n");
+
+            Type type2 = typeof(string);
+            Console.WriteLine(type2.Name);
+            Console.WriteLine(type2.Namespace + "\n");
+
+            Type type3 = typeof(bool);
+            Console.WriteLine(type3.Name);
+            Console.WriteLine(type3.Namespace + "\n");
+
+            Type type4 = typeof(ArrayList);
             Console.WriteLine(type4.Name);
             Console.WriteLine(type4.Namespace + "\n");
         }
