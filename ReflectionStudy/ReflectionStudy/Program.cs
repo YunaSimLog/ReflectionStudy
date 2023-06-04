@@ -15,7 +15,8 @@ namespace ReflectionStudy
             //GetTypeMathod2();
             //GetInterfaceList();
             //GetFieldList();
-            GetMethods();
+            //GetMethods();
+            GetBindingFlags();
         }
 
         /// <summary>
@@ -96,7 +97,25 @@ namespace ReflectionStudy
             int nNum = 0;
             Type type = nNum.GetType();
 
-            var vMethods= type.GetMethods();
+            var vMethods = type.GetMethods();
+            foreach (var CurMethod in vMethods)
+            {
+                Console.WriteLine("Name: {0}, ReturnType: {1}", CurMethod.Name, CurMethod.ReturnType);
+
+                foreach (var CurParameters in CurMethod.GetParameters())
+                {
+                    Console.WriteLine("ParameterTypeName: {0}, ParameterType: {1}", CurParameters.Name, CurParameters.ParameterType);
+                }
+            }
+        }
+
+        static private void GetBindingFlags()
+        {
+            int nNum = 0;
+            Type type = nNum.GetType();
+
+            var vMethods = type.GetMethods(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static);
+
             foreach (var CurMethod in vMethods)
             {
                 Console.WriteLine("Name: {0}, ReturnType: {1}", CurMethod.Name, CurMethod.ReturnType);
