@@ -14,7 +14,8 @@ namespace ReflectionStudy
             //GetTypeMathod1();
             //GetTypeMathod2();
             //GetInterfaceList();
-            GetFieldList();
+            //GetFieldList();
+            GetMethods();
         }
 
         /// <summary>
@@ -90,6 +91,21 @@ namespace ReflectionStudy
             }
         }
 
-        
+        static private void GetMethods()
+        {
+            int nNum = 0;
+            Type type = nNum.GetType();
+
+            var vMethods= type.GetMethods();
+            foreach (var CurMethod in vMethods)
+            {
+                Console.WriteLine("Name: {0}, ReturnType: {1}", CurMethod.Name, CurMethod.ReturnType);
+
+                foreach (var CurParameters in CurMethod.GetParameters())
+                {
+                    Console.WriteLine("ParameterTypeName: {0}, ParameterType: {1}", CurParameters.Name, CurParameters.ParameterType);
+                }
+            }
+        }
     }
 }
