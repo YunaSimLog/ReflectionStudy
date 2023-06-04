@@ -13,7 +13,8 @@ namespace ReflectionStudy
         {
             //GetTypeMathod1();
             //GetTypeMathod2();
-            GetInterfaceList();
+            //GetInterfaceList();
+            GetFieldList();
         }
 
         /// <summary>
@@ -77,5 +78,18 @@ namespace ReflectionStudy
                 Console.WriteLine("Name: {0}", t.Name);
             }
         }
+
+        static private void GetFieldList()
+        {
+            int nNum = 0;
+            Type type = nNum.GetType();
+            var vFieldinfo = type.GetFields();
+            foreach (var CurField in vFieldinfo)
+            {
+                Console.WriteLine("Name: {0} Type: {1} ", CurField.Name, CurField.FieldType);
+            }
+        }
+
+        
     }
 }
